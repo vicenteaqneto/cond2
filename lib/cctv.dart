@@ -64,7 +64,7 @@ class _CctvState extends State<Cctv> {
                   
                   child: WebView(
                  
-                    initialUrl: 'https://camerasdaer.perkons.com:60000/DAER-6716',
+                    initialUrl: 'https://daer.kopp.com.br/ftp/imagem.php?id=Glorinha',
                     
                   ),
                 ),

@@ -17,13 +17,14 @@ final TextEditingController controladorNome = TextEditingController();
 final TextEditingController controladorApartamento = TextEditingController();
 final TextEditingController controladorEmail = TextEditingController();
 final TextEditingController controladorTelefone = TextEditingController();
-final TextEditingController controladorSenha = TextEditingController();
+
 
   Repository repository = Repository();
  
   @override
   Widget build(BuildContext context) {
    final args = ModalRoute.of(context)?.settings.arguments as List<String>;
+   
     
   if (args[1].isNotEmpty) {
     controladorNome.text =args[1];
@@ -37,9 +38,7 @@ final TextEditingController controladorSenha = TextEditingController();
   if (args[4].isNotEmpty) {
     controladorTelefone.text =args[4];
   } 
-  if (args[5].isNotEmpty) {
-    controladorSenha.text =args[5];
-  } 
+  
  
 
     return Scaffold(
@@ -81,25 +80,17 @@ final TextEditingController controladorSenha = TextEditingController();
             )
           ),
           SizedBox(height: 10),
-          TextField(
-            controller: controladorSenha ,
-            decoration: InputDecoration(
-            icon: const Icon(Icons.password),
-              hintText: "Senha"
-            )
-          ),
+          
           SizedBox(height: 10),
           
           ElevatedButton(onPressed: ()async{
-        
-       
-         bool response =  await repository.alterar(
-        args[0],
+           bool response =  await repository.alterar(
+            args[0],
            controladorNome.text, 
            controladorApartamento.text,
            controladorEmail.text, 
-           controladorTelefone.text, 
-           controladorSenha.text );
+           controladorTelefone.text, );
+           
               
                  Navigator.popAndPushNamed(context, 'cadastro');
     
